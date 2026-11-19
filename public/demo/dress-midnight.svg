@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200" role="img" aria-label="Midnight dress silhouette">
+  <rect width="900" height="1200" fill="#EAE6DF"/>
+  <path d="M360 210c30-50 150-50 180 0l50 70-55 30v120l95 560H320l95-560V310l-55-30z" fill="#141820"/>
+  <circle cx="450" cy="150" r="32" fill="#1C1C1A" opacity=".35"/>
+</svg>

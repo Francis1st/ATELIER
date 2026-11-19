@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200" role="img" aria-label="Ivory blouse silhouette">
+  <rect width="900" height="1200" fill="#F7F5F0"/>
+  <path d="M300 260c50-90 250-90 300 0l70 40-40 80-70-20v420c0 30-25 55-55 55H395c-30 0-55-25-55-55V360l-70 20-40-80z" fill="#F4F0E8" stroke="#E7E3DD" stroke-width="3"/>
+  <path d="M390 300c20 40 100 40 120 0" fill="none" stroke="#B7A58B" stroke-width="2"/>
+  <circle cx="450" cy="170" r="34" fill="#EDE8DF"/>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200" role="img" aria-label="Brown loafer silhouette">
+  <rect width="900" height="1200" fill="#F2EDE5"/>
+  <ellipse cx="450" cy="640" rx="220" ry="70" fill="#6B4A32"/>
+  <path d="M250 640c40-120 160-180 280-160 90 15 150 80 170 160H250z" fill="#8A5E3B"/>
+  <rect x="360" y="560" width="120" height="18" rx="4" fill="#B7A58B" opacity=".7"/>
+</svg>

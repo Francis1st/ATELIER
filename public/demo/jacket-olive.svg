@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200" role="img" aria-label="Olive jacket silhouette">
+  <rect width="900" height="1200" fill="#EFEBE3"/>
+  <path d="M290 240c55-80 265-80 320 0l70 50-45 70-65-25v430c0 35-28 60-62 60H392c-34 0-62-25-62-60V335l-65 25-45-70z" fill="#5E6B4A"/>
+  <path d="M450 320v420" stroke="#4A5539" stroke-width="4"/>
+  <circle cx="450" cy="170" r="34" fill="#6F7C58" opacity=".5"/>
+</svg>
