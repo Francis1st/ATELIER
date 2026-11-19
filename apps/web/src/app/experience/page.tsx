@@ -20,11 +20,11 @@ export default function ExperiencePage() {
               Demo Collection
             </p>
             <h1 className="mt-3 font-display text-[clamp(1.85rem,7vw,3rem)] text-charcoal">
-              Experience the gallery
+              The Collection
             </h1>
             <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-warm-gray md:text-base">
-              These sample pieces are for browsing only. They never mix with your
-              personal wardrobe.
+              An editorial preview — sample pieces for browsing only. They never
+              mix with your personal wardrobe.
             </p>
           </div>
           <Button

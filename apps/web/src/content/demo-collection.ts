@@ -1,6 +1,6 @@
 import type { DisplayItem } from "@/domain/types";
 
-/** Local original demo plates — SVG fashion silhouettes, not brand photography. */
+/** Demo lookbook plates — original generated editorial photography for ATELIER. */
 export const DEMO_ITEMS: DisplayItem[] = [
   {
     id: "demo-001",
@@ -15,7 +15,7 @@ export const DEMO_ITEMS: DisplayItem[] = [
     sortOrder: 1,
     createdAt: "2025-10-01T10:00:00.000Z",
     updatedAt: "2025-10-01T10:00:00.000Z",
-    coverUrl: "/demo/coat-camel.svg",
+    coverUrl: "/demo/coat-camel.jpg",
     isDemo: true,
   },
   {
@@ -30,7 +30,7 @@ export const DEMO_ITEMS: DisplayItem[] = [
     sortOrder: 2,
     createdAt: "2025-10-02T10:00:00.000Z",
     updatedAt: "2025-10-02T10:00:00.000Z",
-    coverUrl: "/demo/blouse-ivory.svg",
+    coverUrl: "/demo/blouse-ivory.jpg",
     isDemo: true,
   },
   {
@@ -45,7 +45,7 @@ export const DEMO_ITEMS: DisplayItem[] = [
     sortOrder: 3,
     createdAt: "2025-10-03T10:00:00.000Z",
     updatedAt: "2025-10-03T10:00:00.000Z",
-    coverUrl: "/demo/trouser-charcoal.svg",
+    coverUrl: "/demo/trouser-charcoal.jpg",
     isDemo: true,
   },
   {
@@ -60,7 +60,7 @@ export const DEMO_ITEMS: DisplayItem[] = [
     sortOrder: 4,
     createdAt: "2025-10-04T10:00:00.000Z",
     updatedAt: "2025-10-04T10:00:00.000Z",
-    coverUrl: "/demo/dress-midnight.svg",
+    coverUrl: "/demo/dress-midnight.jpg",
     isDemo: true,
   },
   {
@@ -75,7 +75,7 @@ export const DEMO_ITEMS: DisplayItem[] = [
     sortOrder: 5,
     createdAt: "2025-10-05T10:00:00.000Z",
     updatedAt: "2025-10-05T10:00:00.000Z",
-    coverUrl: "/demo/loafer-brown.svg",
+    coverUrl: "/demo/loafer-brown.jpg",
     isDemo: true,
   },
   {
@@ -90,7 +90,7 @@ export const DEMO_ITEMS: DisplayItem[] = [
     sortOrder: 6,
     createdAt: "2025-10-06T10:00:00.000Z",
     updatedAt: "2025-10-06T10:00:00.000Z",
-    coverUrl: "/demo/tote-black.svg",
+    coverUrl: "/demo/tote-black.jpg",
     isDemo: true,
   },
   {
@@ -105,7 +105,7 @@ export const DEMO_ITEMS: DisplayItem[] = [
     sortOrder: 7,
     createdAt: "2025-10-07T10:00:00.000Z",
     updatedAt: "2025-10-07T10:00:00.000Z",
-    coverUrl: "/demo/scarf-champagne.svg",
+    coverUrl: "/demo/scarf-champagne.jpg",
     isDemo: true,
   },
   {
@@ -120,7 +120,7 @@ export const DEMO_ITEMS: DisplayItem[] = [
     sortOrder: 8,
     createdAt: "2025-10-08T10:00:00.000Z",
     updatedAt: "2025-10-08T10:00:00.000Z",
-    coverUrl: "/demo/jacket-olive.svg",
+    coverUrl: "/demo/jacket-olive.jpg",
     isDemo: true,
   },
 ];

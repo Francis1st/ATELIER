@@ -37,8 +37,9 @@ export default function PrivacyPage() {
         <p>
           This site may load fonts from the network (via Next.js font
           optimization). No third-party analytics scripts are included in this
-          MVP. Demo Collection images are local original SVG plates, not third-party
-          product photography.
+          MVP. Demo Collection images are original editorial plates created for
+          ATELIER, not scraped brand photography. An iPhone waitlist form only
+          submits when a waitlist endpoint is configured.
         </p>
         <p>
           This page describes the current web implementation. It is not a legal

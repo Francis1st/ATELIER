@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { ComingToIphone } from "@/components/brand/ComingToIphone";
 import { Button } from "@/components/ui/Button";
 import { MobilePrimaryBar } from "@/components/layout/MobilePrimaryBar";
@@ -36,7 +37,15 @@ export default function WardrobePage() {
         </div>
 
         <div className="mt-6 md:mt-10">
-          <WardrobeClient />
+          <Suspense
+            fallback={
+              <p className="py-24 text-center text-sm tracking-[0.16em] uppercase text-warm-gray">
+                Loading collection…
+              </p>
+            }
+          >
+            <WardrobeClient />
+          </Suspense>
         </div>
 
         <ComingToIphone className="mt-4" />

@@ -21,14 +21,14 @@ export function GridView({
           onClick={() => onSelect(item)}
           className="group min-w-0 text-left transition-transform active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-champagne motion-reduce:active:scale-100"
         >
-          <div className="relative aspect-[3/4] overflow-hidden bg-[#EFEBE4]">
+          <div className="relative aspect-[3/4] overflow-hidden bg-[#EDE8E0]">
             {item.coverUrl ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={item.coverUrl}
                 alt={item.name}
                 loading="lazy"
-                className="h-full w-full object-contain p-2 transition-transform duration-500 group-hover:scale-[1.02] motion-reduce:group-hover:scale-100"
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:group-hover:scale-100"
               />
             ) : (
               <div className="flex h-full items-center justify-center text-sm text-warm-gray">

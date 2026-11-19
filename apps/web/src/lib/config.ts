@@ -9,4 +9,5 @@ export const BRAND = {
   name: "ATELIER",
   tagline: "Your Wardrobe, Curated.",
   product: "Visual Wardrobe",
+  heroLine: "A considered space for the pieces you love.",
 } as const;

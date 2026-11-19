@@ -12,7 +12,16 @@ const context = await browser.newContext({
 const page = await context.newPage();
 page.on("pageerror", (e) => bugs.push(`pageerror: ${e.message}`));
 page.on("console", (m) => {
-  if (m.type() === "error") bugs.push(`console: ${m.text()}`);
+  if (m.type() !== "error") return;
+  // Static `serve` has no Next RSC flight handlers; soft-nav 404 noise is expected.
+  if (m.text().includes("__next.") || m.text().includes("status of 404")) return;
+  bugs.push(`console: ${m.text()}`);
+});
+page.on("response", (r) => {
+  if (r.status() < 400) return;
+  const url = r.url();
+  if (url.includes("__next.") || url.includes("_rsc=")) return;
+  bugs.push(`http ${r.status()}: ${url}`);
 });
 
 async function checkOverflow(label) {
@@ -29,6 +38,13 @@ async function checkOverflow(label) {
 await page.goto(base + "/", { waitUntil: "networkidle" });
 await page.waitForTimeout(800);
 await checkOverflow("home");
+{
+  const vh = page.viewportSize()?.height ?? 0;
+  const cta = await page.getByRole("link", { name: "Explore the Gallery" }).first().boundingBox();
+  if (!cta || cta.y + cta.height > vh + 8) {
+    bugs.push("home: primary CTA below first viewport");
+  }
+}
 await page.getByRole("button", { name: "Open menu" }).click();
 const menu = page.getByRole("dialog", { name: "Mobile navigation" });
 try {

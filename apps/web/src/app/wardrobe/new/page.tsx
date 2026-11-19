@@ -13,11 +13,11 @@ export default function NewItemPage() {
         New piece
       </p>
       <h1 className="mt-3 font-display text-[clamp(1.85rem,7vw,2.5rem)] text-charcoal">
-        Add to wardrobe
+        Add your first frame
       </h1>
       <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-warm-gray md:text-base">
-        Upload a photo and a few details. Everything stays on this device until
-        you export.
+        A photo, a name, a category — enough to hang in your gallery. More
+        details can wait.
       </p>
       <div className="mt-8 md:mt-10">
         <ItemForm />

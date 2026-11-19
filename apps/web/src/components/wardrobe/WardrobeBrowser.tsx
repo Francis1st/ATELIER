@@ -18,6 +18,7 @@ export function WardrobeBrowser({
   emptyBody,
   emptyCtaHref,
   emptyCtaLabel,
+  highlightId,
   onToggleFavorite,
   onDelete,
 }: {
@@ -29,6 +30,7 @@ export function WardrobeBrowser({
   emptyBody?: string;
   emptyCtaHref?: string;
   emptyCtaLabel?: string;
+  highlightId?: string | null;
   onToggleFavorite?: (item: DisplayItem) => Promise<void> | void;
   onDelete?: (item: DisplayItem) => Promise<void> | void;
 }) {
@@ -93,7 +95,11 @@ export function WardrobeBrowser({
           </p>
         </div>
       ) : view === "gallery" ? (
-        <GalleryView items={visible} onSelect={setSelected} />
+        <GalleryView
+          items={visible}
+          onSelect={setSelected}
+          highlightId={highlightId}
+        />
       ) : (
         <GridView items={visible} onSelect={setSelected} />
       )}
@@ -116,10 +122,6 @@ export function WardrobeBrowser({
           onDelete={
             onDelete
               ? async () => {
-                  const ok = window.confirm(
-                    `Delete “${selected.name}”? This cannot be undone.`,
-                  );
-                  if (!ok) return;
                   await onDelete(selected);
                   setSelected(null);
                 }

@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { useWardrobe } from "@/hooks/useWardrobe";
 import { WardrobeBrowser } from "@/components/wardrobe/WardrobeBrowser";
 import { ImportExportPanel } from "@/components/wardrobe/ImportExportPanel";
@@ -10,6 +12,18 @@ import {
 
 export function WardrobeClient() {
   const { items, loading, error, refresh } = useWardrobe();
+  const searchParams = useSearchParams();
+  const highlightId = searchParams.get("highlight");
+
+  useEffect(() => {
+    if (!highlightId || loading) return;
+    const t = window.setTimeout(() => {
+      document
+        .getElementById(`piece-${highlightId}`)
+        ?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 120);
+    return () => window.clearTimeout(t);
+  }, [highlightId, loading, items.length]);
 
   return (
     <div className="space-y-12">
@@ -18,8 +32,9 @@ export function WardrobeClient() {
         loading={loading}
         error={error}
         editable
+        highlightId={highlightId}
         emptyTitle="Your wardrobe awaits"
-        emptyBody="Add your first piece. Photos stay on this device — no account required."
+        emptyBody="Photograph one piece you love. It stays on this device — your first gallery frame starts here."
         emptyCtaHref="/wardrobe/new"
         emptyCtaLabel="Add a piece"
         onToggleFavorite={async (item) => {

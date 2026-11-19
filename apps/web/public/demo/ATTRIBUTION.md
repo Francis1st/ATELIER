@@ -1,5 +1,5 @@
 # Demo visual assets
 
-All files in `/public/demo` are original SVG fashion plates created for ATELIER Web.
+Files in `/public/demo/*.jpg` are original editorial fashion plates generated for ATELIER Web (Quiet Luxury lookbook style).
 
-They are silhouettes / editorial placeholders — not scraped brand product photography.
+They are not scraped brand product photography. Legacy `*.svg` silhouettes remain only as optional fallbacks and are unused by the app.
