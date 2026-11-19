@@ -1,36 +1,17 @@
 {
-  "name": "atelier-web",
+  "name": "atelier",
   "version": "0.1.0",
   "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint .",
-    "typecheck": "tsc --noEmit",
-    "test": "tsx --test src/domain/filter.test.ts src/domain/schema.test.ts",
-    "test:e2e": "playwright test"
-  },
-  "dependencies": {
-    "clsx": "^2.1.1",
-    "dexie": "^4.4.7",
-    "jszip": "^3.10.2",
-    "lucide-react": "^1.75.0",
-    "next": "16.4.6",
-    "react": "19.3.0",
-    "react-dom": "19.3.0",
-    "zod": "^4.6.7"
-  },
-  "devDependencies": {
-    "@playwright/test": "^1.55.0",
-    "@tailwindcss/turbopack": "4.3.3",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.4.6",
-    "tailwindcss": "4.3.3",
-    "tsx": "^4.23.15",
-    "typescript": "^5"
+    "dev": "npm run dev -w atelier-web",
+    "build": "npm run build -w atelier-web",
+    "start": "npm run start -w atelier-web",
+    "lint": "npm run lint -w atelier-web",
+    "typecheck": "npm run typecheck -w atelier-web",
+    "test": "npm run test -w atelier-web",
+    "test:e2e": "npm run test:e2e -w atelier-web"
   }
 }

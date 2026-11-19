@@ -1,37 +1,39 @@
-# ATELIER — Visual Wardrobe (Web MVP)
+# ATELIER — Visual Wardrobe
 
-Quiet luxury web experience for a private visual wardrobe: brand site, Demo Gallery, and a local-first personal wardrobe with real CRUD, search/filter, and ZIP import/export.
+Monorepo for ATELIER: a quiet-luxury visual wardrobe.
 
-## Stack
-
-- Next.js App Router · React · TypeScript (strict) · Tailwind CSS
-- Dexie (IndexedDB) · Zod · JSZip · Lucide icons
+```
+apps/
+  web/    Next.js web MVP (brand site, demo gallery, local wardrobe)
+  ios/    Reserved for the future SwiftUI iPhone app
+docs/     Shared product & data-contract docs
+```
 
 ## Setup
 
 ```bash
 npm install
-cp .env.example .env.local
+cp apps/web/.env.example apps/web/.env.local
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Scripts
+## Scripts (root)
 
 | Script | Purpose |
 | --- | --- |
-| `npm run dev` | Development server |
-| `npm run build` | Production build |
+| `npm run dev` | Start `apps/web` |
+| `npm run build` | Production build for `apps/web` |
 | `npm run start` | Serve production build |
 | `npm run lint` | ESLint |
-| `npm run typecheck` | `tsc --noEmit` |
-| `npm run test` | Vitest unit tests |
-| `npm run test:e2e` | Playwright end-to-end |
+| `npm run typecheck` | TypeScript check |
+| `npm run test` | Unit tests |
+| `npm run test:e2e` | Playwright e2e |
 
-First e2e run may need: `npx playwright install chromium`
+First e2e run may need: `npx playwright install chromium` (from `apps/web` or via workspace).
 
-## Scope (this MVP)
+## Web MVP scope
 
 - Brand home, Demo Collection (`/experience`), personal wardrobe (`/wardrobe`)
 - Upload / edit / delete / favorite, search & filters, Gallery + Grid
@@ -42,14 +44,10 @@ First e2e run may need: `npx playwright install chromium`
 
 - Accounts, cloud sync, payments, AI recognition
 - Real App Store download (set `NEXT_PUBLIC_APP_STORE_*` only when live)
-- Native iOS app (see `docs/data-contract.md` for migration format)
-
-## Browser data
-
-Wardrobe photos live in this browser’s IndexedDB. Clearing site data deletes them. Export regularly.
+- Native iOS implementation (see `apps/ios` and `docs/data-contract.md`)
 
 ## Docs
 
 - `docs/data-contract.md` — ZIP / JSON contract for future SwiftUI
 - `docs/product-decisions.md` — product constraints
-- `ATELIER_Web_Cursor_Development_Prompt.md` — full task brief
+- `ATELIER_Web_Cursor_Development_Prompt.md` — web task brief
