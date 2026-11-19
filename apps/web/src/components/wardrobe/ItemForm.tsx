@@ -94,7 +94,7 @@ export function ItemForm({
   }
 
   return (
-    <form onSubmit={onSubmit} className="mx-auto grid max-w-4xl gap-10 md:grid-cols-2">
+    <form onSubmit={onSubmit} className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2 md:gap-10">
       <ImageUploader
         file={file}
         onChange={setFile}
@@ -112,7 +112,7 @@ export function ItemForm({
           />
         </Field>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <Field label="Brand">
             <input
               value={values.brand ?? ""}
@@ -148,7 +148,7 @@ export function ItemForm({
                 key={c}
                 type="button"
                 onClick={() => addColor(c)}
-                className="border border-border px-2 py-1 text-xs text-warm-gray hover:border-champagne hover:text-charcoal"
+                className="min-h-11 border border-border px-3 py-2 text-xs text-warm-gray active:border-champagne active:text-charcoal"
               >
                 {c}
               </button>
@@ -200,7 +200,7 @@ export function ItemForm({
                 key={s}
                 type="button"
                 onClick={() => toggleSeason(s)}
-                className={`border px-3 py-1.5 text-[11px] tracking-[0.12em] uppercase ${
+                className={`min-h-11 border px-3 py-2 text-[11px] tracking-[0.12em] uppercase ${
                   values.seasons.includes(s)
                     ? "border-charcoal text-charcoal"
                     : "border-border text-warm-gray"
@@ -222,7 +222,7 @@ export function ItemForm({
           />
         </Field>
 
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
           <Field label="Purchase date">
             <input
               type="date"
@@ -238,6 +238,7 @@ export function ItemForm({
               type="number"
               min={0}
               step="0.01"
+              inputMode="decimal"
               value={values.purchasePrice ?? ""}
               onChange={(e) =>
                 setValues({
@@ -255,6 +256,7 @@ export function ItemForm({
               className="field"
               maxLength={3}
               placeholder="USD"
+              autoCapitalize="characters"
             />
           </Field>
         </div>
@@ -285,13 +287,14 @@ export function ItemForm({
           </p>
         ) : null}
 
-        <div className="flex gap-3 pt-2">
-          <Button type="submit" disabled={saving}>
+        <div className="flex flex-col gap-3 pt-2 sm:flex-row">
+          <Button type="submit" disabled={saving} className="w-full sm:w-auto">
             {saving ? "Saving…" : initial ? "Save changes" : "Save piece"}
           </Button>
           <Button
             type="button"
             variant="ghost"
+            className="w-full sm:w-auto"
             onClick={() => router.push("/wardrobe")}
             disabled={saving}
           >

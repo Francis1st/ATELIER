@@ -24,14 +24,26 @@ Open [http://localhost:3000](http://localhost:3000).
 | Script | Purpose |
 | --- | --- |
 | `npm run dev` | Start `apps/web` |
-| `npm run build` | Production build for `apps/web` |
-| `npm run start` | Serve production build |
+| `npm run build` | Static export build → `apps/web/out` |
 | `npm run lint` | ESLint |
 | `npm run typecheck` | TypeScript check |
 | `npm run test` | Unit tests |
 | `npm run test:e2e` | Playwright e2e |
 
 First e2e run may need: `npx playwright install chromium` (from `apps/web` or via workspace).
+
+## Deploy (Cloudflare Pages)
+
+Static export (`output: "export"`). Connect the GitHub repo and set:
+
+| Setting | Value |
+| --- | --- |
+| Framework preset | Next.js (Static HTML Export) |
+| Build command | `npm run build -w atelier-web` |
+| Build output directory | `apps/web/out` |
+| Root directory | `/` (repository root) |
+
+Optional env: `NEXT_PUBLIC_SITE_URL` = your `*.pages.dev` (or custom) URL.
 
 ## Web MVP scope
 

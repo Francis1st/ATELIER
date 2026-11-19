@@ -12,13 +12,14 @@ export function GridView({
   onSelect: (item: DisplayItem) => void;
 }) {
   return (
-    <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+    <div className="grid grid-cols-2 gap-2.5 sm:gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
       {items.map((item) => (
         <button
           key={item.id}
           type="button"
+          aria-label={item.name}
           onClick={() => onSelect(item)}
-          className="group text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-champagne"
+          className="group min-w-0 text-left transition-transform active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-champagne motion-reduce:active:scale-100"
         >
           <div className="relative aspect-[3/4] overflow-hidden bg-[#EFEBE4]">
             {item.coverUrl ? (

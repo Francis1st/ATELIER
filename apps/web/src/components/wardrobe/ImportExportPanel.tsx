@@ -72,13 +72,14 @@ export function ImportExportPanel({ onDone }: { onDone: () => void }) {
         Export a versioned ZIP with your pieces and photos for safekeeping or
         future iPhone restore. Import validates the archive before writing.
       </p>
-      <div className="mt-5 flex flex-wrap gap-3">
-        <Button type="button" onClick={onExport} disabled={busy}>
+      <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <Button type="button" className="w-full sm:w-auto" onClick={onExport} disabled={busy}>
           Export Wardrobe
         </Button>
         <Button
           type="button"
           variant="secondary"
+          className="w-full sm:w-auto"
           disabled={busy}
           onClick={() => inputRef.current?.click()}
         >
@@ -89,8 +90,8 @@ export function ImportExportPanel({ onDone }: { onDone: () => void }) {
         <legend className="text-[11px] tracking-[0.14em] uppercase text-warm-gray">
           Import mode
         </legend>
-        <div className="mt-2 flex flex-wrap gap-4 text-sm text-charcoal">
-          <label className="flex items-center gap-2">
+        <div className="mt-2 flex flex-col gap-2 text-sm text-charcoal sm:flex-row sm:flex-wrap sm:gap-4">
+          <label className="flex min-h-11 items-center gap-2">
             <input
               type="radio"
               name="import-mode"
@@ -99,7 +100,7 @@ export function ImportExportPanel({ onDone }: { onDone: () => void }) {
             />
             Merge (same ID replaces that piece)
           </label>
-          <label className="flex items-center gap-2">
+          <label className="flex min-h-11 items-center gap-2">
             <input
               type="radio"
               name="import-mode"

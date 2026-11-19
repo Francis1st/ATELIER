@@ -70,6 +70,7 @@ export function WardrobeBrowser({
         body={emptyBody}
         ctaHref={emptyCtaHref}
         ctaLabel={emptyCtaLabel}
+        deferCtaToMobileBar={editable}
       />
     );
   }

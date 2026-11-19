@@ -1,5 +1,4 @@
-import type { Metadata } from "next";
-import { Suspense } from "react";
+import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
@@ -38,18 +37,27 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#F7F5F0",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${display.variable} ${sans.variable} h-full`}>
-      <body className="min-h-full flex flex-col antialiased">
-        <Suspense fallback={<div className="h-16 border-b border-border bg-ivory/90" />}>
-          <SiteHeader />
-        </Suspense>
-        <main className="flex-1">{children}</main>
+    <html
+      lang="en"
+      className={`${display.variable} ${sans.variable} h-full`}
+      data-scroll-behavior="smooth"
+    >
+      <body className="min-h-full flex flex-col antialiased overflow-x-clip">
+        <SiteHeader />
+        <main className="flex-1 w-full min-w-0">{children}</main>
         <SiteFooter />
       </body>
     </html>

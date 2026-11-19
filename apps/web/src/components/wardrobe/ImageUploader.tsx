@@ -73,7 +73,7 @@ export function ImageUploader({
           takeFile(e.dataTransfer.files?.[0]);
         }}
         className={cn(
-          "relative flex min-h-64 cursor-pointer flex-col items-center justify-center border border-dashed border-border bg-[#F3EFE8] px-4 py-10 text-center transition-colors",
+          "relative flex min-h-56 cursor-pointer flex-col items-center justify-center border border-dashed border-border bg-[#F3EFE8] px-4 py-10 text-center transition-colors active:border-champagne sm:min-h-64",
           dragging && "border-champagne bg-[#EFE9DF]",
         )}
       >
@@ -88,10 +88,11 @@ export function ImageUploader({
           <>
             <Upload className="text-champagne" size={22} />
             <p className="mt-4 text-sm text-charcoal">
-              Drop a photo or click to choose
+              <span className="md:hidden">Tap to photograph or choose a photo</span>
+              <span className="hidden md:inline">Drop a photo or click to choose</span>
             </p>
             <p className="mt-2 text-xs text-warm-gray">
-              JPG, PNG, WebP · up to 8 MB · camera supported on mobile
+              JPG, PNG, WebP · up to 8 MB
             </p>
           </>
         )}

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 
 export default function NotFound() {
@@ -9,9 +8,9 @@ export default function NotFound() {
       <p className="mt-3 text-warm-gray">
         This path is not part of the ATELIER web experience.
       </p>
-      <Link href="/" className="mt-8">
-        <Button type="button">Back home</Button>
-      </Link>
+      <Button href="/" className="mt-8">
+        Back home
+      </Button>
     </div>
   );
 }
