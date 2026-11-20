@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import type { DisplayItem } from "@/domain/types";
+import { resolveActiveCoverId, type DisplayItem } from "@/domain/types";
 import { getImage, listItems } from "@/services/wardrobe/repository";
 
 type State = {
@@ -15,9 +15,10 @@ async function loadDisplayItems(): Promise<DisplayItem[]> {
   return Promise.all(
     rows.map(async (item): Promise<DisplayItem> => {
       let coverUrl: string | undefined;
-      if (item.coverImageId) {
+      const coverId = resolveActiveCoverId(item);
+      if (coverId) {
         try {
-          const img = await getImage(item.coverImageId);
+          const img = await getImage(coverId);
           if (img?.blob) coverUrl = URL.createObjectURL(img.blob);
         } catch {
           coverUrl = undefined;

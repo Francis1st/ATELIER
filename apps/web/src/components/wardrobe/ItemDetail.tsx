@@ -2,7 +2,11 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import { Heart, X } from "lucide-react";
-import type { DisplayItem } from "@/domain/types";
+import {
+  coverTypeLabel,
+  type ActiveCoverType,
+  type DisplayItem,
+} from "@/domain/types";
 import { CATEGORY_LABELS, SEASON_LABELS } from "@/domain/labels";
 import { Button } from "@/components/ui/Button";
 
@@ -11,12 +15,14 @@ export function ItemDetail({
   onClose,
   onToggleFavorite,
   onDelete,
+  onSetCover,
   editable = false,
 }: {
   item: DisplayItem;
   onClose: () => void;
   onToggleFavorite?: () => void;
   onDelete?: () => void;
+  onSetCover?: (type: ActiveCoverType) => Promise<void> | void;
   editable?: boolean;
 }) {
   const [confirmDelete, setConfirmDelete] = useState(false);
@@ -78,6 +84,15 @@ export function ItemDetail({
               Demo Collection
             </p>
           ) : null}
+          {!item.isDemo && item.activeCoverType === "ai" ? (
+            <p className="text-[11px] tracking-[0.2em] uppercase text-champagne">
+              AI Curated — not brand photography
+            </p>
+          ) : !item.isDemo && item.activeCoverType === "curated" ? (
+            <p className="text-[11px] tracking-[0.2em] uppercase text-warm-gray">
+              Studio Clean
+            </p>
+          ) : null}
           <h2
             id={titleId}
             className="mt-2 pr-10 font-display text-[1.85rem] leading-tight text-charcoal sm:text-[2rem]"
@@ -88,6 +103,34 @@ export function ItemDetail({
             {item.brand ? `${item.brand} · ` : ""}
             {CATEGORY_LABELS[item.category]}
           </p>
+
+          {editable && onSetCover ? (
+            <div className="mt-5 flex flex-wrap gap-2">
+              {(
+                [
+                  ["original", Boolean(item.originalImageId)],
+                  ["curated", Boolean(item.curatedImageId || item.coverImageId)],
+                  ["ai", Boolean(item.aiCuratedImageId)],
+                ] as const
+              ).map(([type, available]) =>
+                available ? (
+                  <button
+                    key={type}
+                    type="button"
+                    onClick={() => void onSetCover(type)}
+                    className={`min-h-11 border px-3 text-[11px] tracking-[0.12em] uppercase ${
+                      (item.activeCoverType ?? "curated") === type
+                        ? "border-charcoal text-charcoal"
+                        : "border-border text-warm-gray"
+                    }`}
+                    aria-pressed={(item.activeCoverType ?? "curated") === type}
+                  >
+                    {coverTypeLabel(type)}
+                  </button>
+                ) : null,
+              )}
+            </div>
+          ) : null}
 
           <dl className="mt-8 space-y-4 text-sm">
             {item.colors.length ? (

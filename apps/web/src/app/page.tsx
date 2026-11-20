@@ -132,6 +132,40 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* 3b. Curated Cover */}
+      <section
+        className="border-b border-border py-16 md:py-28"
+        aria-labelledby="cover-heading"
+      >
+        <div className="mx-auto max-w-6xl page-pad md:grid md:grid-cols-12 md:gap-12">
+          <div className="md:col-span-5">
+            <p className="text-[11px] tracking-[0.28em] uppercase text-warm-gray">
+              Curated Cover
+            </p>
+            <h2
+              id="cover-heading"
+              className="mt-4 font-display text-[clamp(1.75rem,5vw,2.5rem)] text-charcoal"
+            >
+              Your photo. Three ways to present it.
+            </h2>
+          </div>
+          <div className="mt-8 space-y-6 md:col-span-6 md:col-start-7 md:mt-2">
+            <p className="text-[15px] leading-relaxed text-warm-gray md:text-base">
+              <span className="text-charcoal">Original</span> stays untouched.{" "}
+              <span className="text-charcoal">Studio Clean</span> frames and
+              softens presentation on this device — no cloud model.{" "}
+              <span className="text-charcoal">AI Curated</span> is optional,
+              consent-based image editing when a secure endpoint is connected.
+              Demo Collection images above are editorial plates, not AI outputs
+              from user photos.
+            </p>
+            <Button href="/wardrobe/new" variant="secondary">
+              Add a piece
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* 4. Gallery / Grid */}
       <section
         className="border-b border-border py-16 md:py-28"

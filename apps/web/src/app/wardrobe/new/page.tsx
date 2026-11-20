@@ -16,8 +16,8 @@ export default function NewItemPage() {
         Add your first frame
       </h1>
       <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-warm-gray md:text-base">
-        A photo, a name, a category — enough to hang in your gallery. More
-        details can wait.
+        Photo, name, category — then choose Original or Studio Clean. AI Curated
+        is optional and never required to save.
       </p>
       <div className="mt-8 md:mt-10">
         <ItemForm />

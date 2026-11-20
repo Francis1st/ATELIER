@@ -23,10 +23,18 @@ export default function PrivacyPage() {
           in this web MVP.
         </p>
         <p>
-          We do not upload your wardrobe photos to an ATELIER server as part of
-          the core save flow. Clearing site data, using private browsing with
-          storage restrictions, or uninstalling the browser can permanently remove
-          your local wardrobe.
+          Core save flow keeps photos in this browser. Original photos are never
+          overwritten by Studio Clean or AI covers. Clearing site data, private
+          browsing restrictions, or uninstalling the browser can permanently
+          remove your local wardrobe.
+        </p>
+        <p>
+          <strong className="font-medium text-charcoal">AI Curated Cover</strong>{" "}
+          is optional and off by default. When enabled and you explicitly
+          consent, the selected photo is sent to the configured cover endpoint
+          for one-time editing. We do not claim that third-party providers never
+          store or train on inputs — review that service’s policy before
+          enabling. You can always keep Original or Studio Clean instead.
         </p>
         <p>
           Use <strong className="font-medium text-charcoal">Export Wardrobe</strong>{" "}

@@ -7,8 +7,12 @@ import { WardrobeBrowser } from "@/components/wardrobe/WardrobeBrowser";
 import { ImportExportPanel } from "@/components/wardrobe/ImportExportPanel";
 import {
   deleteItem,
+  getImage,
+  resolveActiveCoverId,
+  setActiveCover,
   toggleFavorite,
 } from "@/services/wardrobe/repository";
+import type { DisplayItem } from "@/domain/types";
 
 export function WardrobeClient() {
   const { items, loading, error, refresh } = useWardrobe();
@@ -44,6 +48,20 @@ export function WardrobeClient() {
         onDelete={async (item) => {
           await deleteItem(item.id);
           await refresh();
+        }}
+        onSetCover={async (item, type) => {
+          const updated = await setActiveCover(item.id, type);
+          await refresh();
+          const coverId = resolveActiveCoverId(updated);
+          let coverUrl: string | undefined;
+          if (coverId) {
+            const img = await getImage(coverId);
+            if (img?.blob) coverUrl = URL.createObjectURL(img.blob);
+          }
+          if (item.coverUrl?.startsWith("blob:")) {
+            URL.revokeObjectURL(item.coverUrl);
+          }
+          return { ...updated, coverUrl } satisfies DisplayItem;
         }}
       />
       <ImportExportPanel onDone={() => void refresh()} />

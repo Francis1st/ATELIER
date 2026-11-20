@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { DisplayItem, ViewMode } from "@/domain/types";
+import type { ActiveCoverType, DisplayItem, ViewMode } from "@/domain/types";
 import { DEFAULT_FILTERS, filterAndSortItems } from "@/domain/filter";
 import { FilterBar } from "@/components/wardrobe/FilterBar";
 import { GalleryView } from "@/components/wardrobe/GalleryView";
@@ -21,6 +21,7 @@ export function WardrobeBrowser({
   highlightId,
   onToggleFavorite,
   onDelete,
+  onSetCover,
 }: {
   items: DisplayItem[];
   loading?: boolean;
@@ -33,6 +34,10 @@ export function WardrobeBrowser({
   highlightId?: string | null;
   onToggleFavorite?: (item: DisplayItem) => Promise<void> | void;
   onDelete?: (item: DisplayItem) => Promise<void> | void;
+  onSetCover?: (
+    item: DisplayItem,
+    type: ActiveCoverType,
+  ) => Promise<DisplayItem | void> | DisplayItem | void;
 }) {
   const [filters, setFilters] = useState(DEFAULT_FILTERS);
   const [view, setView] = useState<ViewMode>("gallery");
@@ -124,6 +129,14 @@ export function WardrobeBrowser({
               ? async () => {
                   await onDelete(selected);
                   setSelected(null);
+                }
+              : undefined
+          }
+          onSetCover={
+            onSetCover
+              ? async (type) => {
+                  const next = await onSetCover(selected, type);
+                  if (next) setSelected(next);
                 }
               : undefined
           }
